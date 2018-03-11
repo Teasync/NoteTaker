@@ -23,7 +23,9 @@ dist/
 nbdist/
 .nb-gradle/
 
-# Maven
+### Maven ###
 log/
 target/
 .mvn
+mvnw
+mvnw.cmd
