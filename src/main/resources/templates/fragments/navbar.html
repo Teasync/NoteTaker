@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="navbar(activeTab)" th:remove="tag">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${activeTab == 'home'}? 'active' : null" th:href="@{/}">home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${activeTab == 'create'}? 'active' : null" th:href="@{/create}">create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${activeTab == 'list'}? 'active' : null" th:href="@{/list}">list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${activeTab == 'find'}? 'active' : null" th:href="@{/find}">find</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
