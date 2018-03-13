@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('create')">
+    <title>placeholder title</title>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar('create')">navbar</nav>
+    <div class="jumbotron">
+        <h3 class="display-4 text-center">Note added!</h3>
+        <p class="text-center lead" style="font-size: 150%;">Want to add another one?</p>
+
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="#" th:action="@{/create}" method="get">
+                <button type="submit" class="btn btn-secondary btn-block">Yes please!</button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+<script src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

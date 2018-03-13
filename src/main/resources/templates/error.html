@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('error')">
+    <title>placeholder title</title>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar('error')">navbar</nav>
+    <div class="jumbotron">
+        <h3 class="display-4 text-center" style="font-size: 150%;">Whoops! Looks like something went wrong...</h3>
+    </div>
+</div>
+<script src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('not found')">
+    <title>placeholder title</title>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar('not found')">navbar</nav>
+    <div class="jumbotron">
+        <h3 class="display-4 text-center">Hmmm... This resource doesn't seem to exist.</h3>
+    </div>
+</div>
+<script src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

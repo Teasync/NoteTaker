@@ -4,9 +4,35 @@
     <title>placeholder title</title>
 </head>
 <body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar('create')">navbar</nav>
+    <div class="jumbotron">
+        <h3 class="display-4 text-center">Create a new note.</h3>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form action="#" th:action="@{/create}" th:object="${note}" method="post">
+                <div class="form-group">
+                    <label for="inputTitle">Title</label>
+                    <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp"
+                           placeholder="Think of a creative title!" th:field="*{title}"
+                           autocomplete="off" required/>
+                    <small id="titleHelp" class="form-text text-muted">
+                        Try not to be <em>tooooo</em> creative...</small>
+                </div>
+                <div class="form-group">
+                    <label for="inputContent">Body</label>
+                    <textarea class="form-control" id="inputContent" rows="8" autocomplete="off"
+                              placeholder="I won't look, I promise ;)" th:field="*{content}" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark float-right">Let's make a note!</button>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
 
-<nav th:replace="fragments/navbar :: navbar('create')">navbar</nav>
-
+</div>
 <script src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
 
 </body>
