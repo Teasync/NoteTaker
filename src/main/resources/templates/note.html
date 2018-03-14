@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(${note.title})">
+    <title>placeholder title</title>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar(${note.title})">navbar</nav>
+    <div class="jumbotron">
+        <h3 class="display-4 text-center">List all notes.</h3>
+    </div>
+    <div class="row" style="height: 25px;"></div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="card">
+                <div class="card-header">
+                    <h3 th:text="${note.title}">note title</h3>
+                </div>
+                <div class="card-body">
+                    <p style="font-size: 200%;" th:text="${note.content}">note body</p>
+                </div>
+                <div class="card-footer text-right">
+                    <a class="btn btn-danger" href="#" th:href="@{/list(delete=${note.id})}">Delete</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row" style="height:50px"></div>
+    </div>
+    <div class="row" style="height:100px"></div>
+</div>
+
+</body>
+</html>

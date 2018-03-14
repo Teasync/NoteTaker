@@ -10,15 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Controller
 public class NotetakerController implements ErrorController{
@@ -54,6 +52,24 @@ public class NotetakerController implements ErrorController{
         List<Note> allNotes = noteRepository.findAll();
         model.addAttribute("listOfNotes", allNotes);
         return "list";
+    }
+
+    @GetMapping(value = "/list", params = "delete")
+    public String completeDelete(@RequestParam(required = true) long delete) {
+        noteRepository.deleteById(delete);
+        return "deleted";
+    }
+
+    @GetMapping(value = "/note/{id}")
+    public String showNote(@PathVariable long id, Model model) {
+        Optional<Note> maybeNote= noteRepository.findById(id);
+        try {
+            Note toBeDisplayed = maybeNote.get();
+            model.addAttribute("note",toBeDisplayed);
+            return "note";
+        } catch (NoSuchElementException e) {
+            return "nonote";
+        }
     }
 
     @GetMapping("/find")

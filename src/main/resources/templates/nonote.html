@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('invalid id')">
+    <title>placeholder title</title>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar('invalid id')">navbar</nav>
+    <div class="jumbotron">
+        <h3 class="display-4 text-center">This note doesn't seem to exist.</h3>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="#" th:action="@{/list}" method="get">
+                <button type="submit" class="btn btn-secondary btn-block">Back to list</button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+</body>
+</html>
